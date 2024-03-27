@@ -42,7 +42,7 @@
         android:layout_marginTop="16dp"
         />
 
-<com.google.android.material.textfield.TextInputLayout
+<com.google.android.material.textfield.TextInputEditText
     android:id="@+id/tfCorreo"
     android:layout_width="0dp"
     android:layout_height="60dp"
@@ -53,12 +53,7 @@
     android:layout_marginStart="20dp"
     android:layout_marginTop="10dp"
     android:hint="Correo@gmail.com"
-    android:textColorHint="@color/black"
-    android:layout_marginEnd="20dp">
-
-
-
-</com.google.android.material.textfield.TextInputLayout>
+    android:layout_marginEnd="20dp"/>
     <TextView
         android:id="@+id/lbconfir"
         android:layout_width="0dp"
@@ -72,17 +67,20 @@
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/tfpass"
-        android:layout_width="0dp"
-        android:layout_height="60dp"
-        app:layout_constraintStart_toStartOf ="parent"
-        app:layout_constraintEnd_toEndOf ="parent"
-        android:background="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/lbconfir"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
+        android:inputType="textPassword"
         android:hint="Contraseña"
         android:layout_marginEnd="20dp"
+        app:layout_constraintStart_toStartOf ="parent"
+        app:layout_constraintEnd_toEndOf ="parent"
+        app:layout_constraintTop_toBottomOf="@id/lbconfir"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@color/white"
         />
+
+
     <TextView
         android:id="@+id/label"
         android:layout_width="wrap_content"
@@ -96,17 +94,24 @@
 
 <com.google.android.material.textfield.TextInputEditText
     android:id="@+id/confirPass"
+
+
     android:layout_width="0dp"
     android:layout_height="60dp"
-    app:layout_constraintStart_toStartOf ="parent"
-    app:layout_constraintEnd_toEndOf ="parent"
     android:background="@color/white"
-    app:layout_constraintTop_toBottomOf="@id/label"
     android:layout_marginStart="20dp"
     android:layout_marginTop="10dp"
     android:inputType="textPassword"
     android:hint="Confirmar Contraseña"
-    android:layout_marginEnd="20dp"/>
+    android:layout_marginEnd="20dp"
+
+    app:layout_constraintStart_toStartOf ="parent"
+    app:layout_constraintEnd_toEndOf ="parent"
+    app:layout_constraintTop_toBottomOf="@id/label"
+    >
+
+
+</com.google.android.material.textfield.TextInputEditText>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/btnRegister"
