@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".login"
+    tools:context=".registerFragment"
     android:background="@color/rosa"
     >
 
@@ -19,11 +19,12 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="20dp"
         />
+
     <TextView
         android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Iniciar Sesion"
+        android:text="Registro"
         android:textSize="40dp"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginStart="30dp"
@@ -31,7 +32,6 @@
         android:layout_marginTop="16dp"
         android:backgroundTint="#484956"
         />
-
     <TextView
         android:id="@+id/tvcorreo"
         android:layout_width="wrap_content"
@@ -48,13 +48,13 @@
         android:id="@+id/tfCorreo"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:paddingStart="10dp"
         app:layout_constraintStart_toStartOf ="parent"
         app:layout_constraintEnd_toEndOf ="parent"
         android:background="@color/white"
         app:layout_constraintTop_toBottomOf="@id/tvcorreo"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
+        android:paddingStart="10dp"
         android:hint="Correo@gmail.com"
         android:layout_marginEnd="20dp"/>
     <TextView
@@ -73,8 +73,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:inputType="textPassword"
-        android:paddingStart="10dp"
         android:hint="Contraseña"
+        android:paddingStart="10dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintStart_toStartOf ="parent"
         app:layout_constraintEnd_toEndOf ="parent"
@@ -83,45 +83,74 @@
         android:layout_height="60dp"
         android:background="@color/white"
         />
+
+
+    <TextView
+        android:id="@+id/label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Confirmar contraseña"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="30dp"
+        app:layout_constraintTop_toBottomOf ="@id/tfpass"
+        android:layout_marginTop="16dp"/>
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/confirPass"
+
+
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:inputType="textPassword"
+        android:paddingStart="10dp"
+        android:hint="Confirmar Contraseña"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintStart_toStartOf ="parent"
+        app:layout_constraintEnd_toEndOf ="parent"
+        app:layout_constraintTop_toBottomOf="@id/label"
+        >
+
+
+    </com.google.android.material.textfield.TextInputEditText>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnRegister"
+        android:layout_width="2in"
+        android:layout_height="60dp"
+        app:layout_constraintStart_toStartOf ="parent"
+        app:layout_constraintEnd_toEndOf ="parent"
+        app:layout_constraintTop_toBottomOf="@id/confirPass"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/white"
+        android:text="Registrarse"
+        android:textSize="21dp"
+        android:backgroundTint="#484956"
+        />
     <TextView
         android:id="@+id/yt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No tengo Cuenta"
+        android:text="Ya tengo Cuenta"
         android:textSize="18dp"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="80dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="32dp"
-        />
+        android:layout_marginStart="100dp"
+        app:layout_constraintTop_toBottomOf="@id/btnRegister"/>
 
     <TextView
-        android:id="@+id/registrarse"
+        android:id="@+id/iniciar_sesion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Registrarse"
+        android:text="Iniciar Sesion"
         app:layout_constraintStart_toEndOf="@id/yt"
         app:layout_constraintBottom_toBottomOf="@id/yt"
         android:textSize="18dp"
         android:textColor="@color/white"
         android:layout_marginStart="5dp"
-        />
-
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnLogin"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        app:layout_constraintStart_toStartOf ="parent"
-        app:layout_constraintEnd_toEndOf ="parent"
-        app:layout_constraintBottom_toTopOf="@id/yt"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="20dp"
-        android:textColor="@color/white"
-        android:text="Inicar Sesion"
-        android:textSize="21dp"
-        android:layout_marginEnd="50dp"
-        android:layout_marginBottom="60dp"
-        android:backgroundTint="#484956"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
