@@ -121,7 +121,6 @@
         android:textSize="21dp"
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="60dp"
-        android:backgroundTint="#484956"
-        />
+        android:backgroundTint="#484956"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
