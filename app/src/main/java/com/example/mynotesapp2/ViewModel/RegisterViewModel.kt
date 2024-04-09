@@ -34,6 +34,6 @@ class RegisterViewModel(
     suspend fun getVersion(){
         repositorio.getAllVersion()
     }
-
+//terminar de crear los suspend fun de los demas endpoints aqui y en el apisrvices
 
 }
