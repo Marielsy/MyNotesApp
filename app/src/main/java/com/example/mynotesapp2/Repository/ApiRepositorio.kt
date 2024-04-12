@@ -15,8 +15,10 @@ import com.example.mynotesapp2.data.Model.remote.ApiService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.Response
+import javax.inject.Inject
 
-abstract class ApiRepositorio(
+abstract class ApiRepositorio
+    @Inject constructor(
     private val api: ApiService
 )  {
 

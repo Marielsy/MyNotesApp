@@ -1,4 +1,4 @@
-package com.example.mynotesapp2.View
+package com.example.mynotesapp2.ui.View
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mynotesapp2.databinding.ActivityMainBinding

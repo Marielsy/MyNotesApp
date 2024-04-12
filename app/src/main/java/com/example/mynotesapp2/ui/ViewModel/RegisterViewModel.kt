@@ -6,11 +6,12 @@ import com.example.mynotesapp2.Repository.ApiRepositorio
 import com.example.mynotesapp2.data.Model.User
 import com.example.mynotesapp2.data.Model.remote.ApiService
 import com.example.mynotesapp2.data.Model.remote.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-@ViewModelScoped
+@HiltViewModel
 class RegisterViewModel2   @Inject constructor(
     private val apiRepositorio: ApiRepositorio,
     private val apiService: ApiService
