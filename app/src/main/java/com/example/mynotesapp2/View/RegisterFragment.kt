@@ -60,7 +60,7 @@ class RegisterFragment : Fragment() {
 
             val passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#\$%^&*()-_=+\\\\|\\[{\\]};:'\",<.>/?]).{8,}\$".toRegex()
             if(!password.matches(passwordPattern)){
-                Toast.makeText(requireContext(),"",
+                Toast.makeText(requireContext(),"La contraseña no cumple los parametros requeridos",
                     Toast.LENGTH_SHORT
                 ).show()
                 binding.btnRegister.setOnClickListener {viewModel}
