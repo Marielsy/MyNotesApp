@@ -5,16 +5,20 @@ import com.example.mynotesapp2.data.Model.Category
 import com.example.mynotesapp2.data.Model.HistoryVersion
 import com.example.mynotesapp2.data.Model.Note
 import com.example.mynotesapp2.data.Model.User
+import dagger.Binds
+import dagger.Module
+import dagger.Provides
+import dagger.hilt.InstallIn
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import javax.inject.Inject
 
 
 interface ApiService {
-    val viewModelScope: Any
 
     //hacer uno por parametros
     @GET("usuarios")
@@ -25,19 +29,10 @@ interface ApiService {
 }
 
 
-/*    @GET("notas")
-    suspend fun getAllNotas(): Response <List<Note>?>
-    @GET ("historial")
-    suspend fun getAllVersion(): Response <List<HistoryVersion>?>
-    @GET ("categorias")
-    suspend fun getAllCategory():  Response<List<Category>?>
-    @GET ("libretas")
-    suspend fun getAllLibretas(): Response<List<Book>?>*/
-
-class RetrofitServiceManager {
+class RetrofitServiceManager @Inject constructor() {
     private lateinit var retrofitService: ApiService
 
-    companion object {
+  companion object {
         private lateinit var retrofitService: ApiService
 
         fun getInstance(): ApiService {
@@ -51,6 +46,7 @@ class RetrofitServiceManager {
             return retrofitService
         }
     }
+
 }
 
 
@@ -61,9 +57,7 @@ class RetrofitServiceManager {
             TODO("Not yet implemented")
         }
 
-        suspend fun createUser(user: User): Response<User> {
-            TODO("Not yet implemented")
-        }
+
 
          suspend fun getAllNotas(): Response<List<Note>?> {
             TODO("Not yet implemented")

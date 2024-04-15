@@ -5,6 +5,7 @@ package com.example.mynotesapp2.Repository
 import android.provider.ContactsContract.CommonDataKinds.Email
 import android.text.BoringLayout
 import android.util.Log
+import com.example.mynotesapp2.core.di.NetworkModule
 
 import com.example.mynotesapp2.data.Model.Book
 import com.example.mynotesapp2.data.Model.Category
@@ -17,15 +18,12 @@ import kotlinx.coroutines.withContext
 import retrofit2.Response
 import javax.inject.Inject
 
-abstract class ApiRepositorio
-    @Inject constructor(
-    private val api: ApiService
-)  {
-
-    suspend fun getAllUsers1(): List<User>? {
+ class ApiRepositorio
+    @Inject constructor()  {
+     suspend fun getAllUsers1(): List<User>? {
         return try {
             withContext(Dispatchers.IO) {
-                val response = api.getAllUsers()
+                val response = NetworkModule.provideApiService(NetworkModule.provideRetrofit()).getAllUsers()
                 val re = response.body() ?: emptyList()
                 Log.e("ejemplo", "getAllUsers1: $re", )
                 re
@@ -36,7 +34,6 @@ abstract class ApiRepositorio
         }
     }
 }
-
 
 
 

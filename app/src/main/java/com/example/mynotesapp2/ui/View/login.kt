@@ -6,7 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.mynotesapp2.R
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class login : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

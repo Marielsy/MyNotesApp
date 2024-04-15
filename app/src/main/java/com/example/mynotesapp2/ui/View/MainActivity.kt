@@ -2,9 +2,10 @@ package com.example.mynotesapp2.ui.View
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mynotesapp2.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
 

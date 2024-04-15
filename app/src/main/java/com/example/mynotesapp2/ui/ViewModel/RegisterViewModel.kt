@@ -1,13 +1,11 @@
-import androidx.lifecycle.LiveData
+package com.example.mynotesapp2.ui.ViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mynotesapp2.Repository.ApiRepositorio
 import com.example.mynotesapp2.data.Model.User
 import com.example.mynotesapp2.data.Model.remote.ApiService
-import com.example.mynotesapp2.data.Model.remote.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dagger.hilt.android.scopes.ViewModelScoped
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -17,15 +15,10 @@ class RegisterViewModel2   @Inject constructor(
     private val apiService: ApiService
 ): ViewModel() {
 
-    private lateinit var repositorio: ApiRepositorio
-    val _users = MutableLiveData<List<User>>()
-    val users: LiveData<List<User>> = _users
+    val _users = MutableLiveData<List<User>?>()
+    val users: MutableLiveData<List<User>?> = _users
 
-    init {
-        repositorio = apiRepositorio
-        getUser1()
-    }
-    fun getUser1() {
+    fun getUser() {
         viewModelScope.launch {
             val usersList = apiRepositorio.getAllUsers1()
             _users.value = usersList
@@ -35,7 +28,7 @@ class RegisterViewModel2   @Inject constructor(
         if (email.isEmpty() || !verifyEmail(email)) {
             return "Por favor, ingrese un correo electrónico válido."
         }
-        if (password.isEmpty()) {
+        if (password.isEmpty() || !verifyPassword(password) ) {
             return "Por favor, ingrese una contraseña."
         }
         if (password != confirmPassword) {

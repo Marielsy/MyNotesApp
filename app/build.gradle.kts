@@ -1,8 +1,9 @@
+
 plugins {
-    id("kotlin-kapt")
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-
+    id("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -85,9 +86,9 @@ dependencies {
     //Glide
     implementation ("com.github.bumptech.glide:glide:4.16.0")
 
-    //h
+    //dagger hill
     implementation("com.google.dagger:hilt-android:2.44")
-//    kapt("com.google.dagger:hilt-android-compiler:2.44")
+    kapt("com.google.dagger:hilt-android-compiler:2.44")
 
     //NavSafe
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")

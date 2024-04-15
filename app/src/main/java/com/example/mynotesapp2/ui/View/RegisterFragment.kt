@@ -1,44 +1,42 @@
 package com.example.mynotesapp2.ui.View
 
-import RegisterViewModel2
+import com.example.mynotesapp2.ui.ViewModel.RegisterViewModel2
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.mynotesapp2.data.Model.remote.getAllUsers
 import com.example.mynotesapp2.databinding.FragmentRegisterBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-
 class RegisterFragment : Fragment() {
 
-    private val viewModel :  RegisterViewModel2 by viewModels()
+    private val viewModel : RegisterViewModel2 by viewModels()
+
     private lateinit var binding: FragmentRegisterBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-//         viewModel = ViewModelProvider(this)[RegisterViewModel2::class.java]
+//         viewModel = ViewModelProvider(this)[com.example.mynotesapp2.ui.ViewModel.RegisterViewModel2::class.java]
         binding = FragmentRegisterBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//         val viewModel by viewModels<RegisterViewModel2>()
+//         val viewModel by viewModels<com.example.mynotesapp2.ui.ViewModel.RegisterViewModel2>()
 
 
         viewModel.users.observe(viewLifecycleOwner){/*
             Log.e("TAG", "onViewCreated: ${it}")*/
 
         binding.btnRegister.setOnClickListener {
-            viewModel.getUser1()
+            viewModel.getUser()
             val email = binding.tfCorreo.text.toString()
             val password = binding.tfpass.text.toString()
             val confirmPassword = binding.confirPass.text.toString()
