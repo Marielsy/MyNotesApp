@@ -3,12 +3,10 @@ package com.example.mynotesapp2.data.Model.remote
 import com.example.mynotesapp2.data.Model.Book
 import com.example.mynotesapp2.data.Model.Category
 import com.example.mynotesapp2.data.Model.HistoryVersion
+import com.example.mynotesapp2.data.Model.NewUser
 import com.example.mynotesapp2.data.Model.Note
 import com.example.mynotesapp2.data.Model.User
-import dagger.Binds
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
+import retrofit2.Call
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -24,8 +22,8 @@ interface ApiService {
     @GET("usuarios")
     suspend fun getAllUsers(): Response<List<User>?>
 
-    @POST("user/new")
-    suspend fun createUser(@Body user: User): Response<User>
+    @POST("usuarios")
+    fun registerUser(@Body user: NewUser): Call<User?>
 }
 
 
@@ -47,19 +45,14 @@ class RetrofitServiceManager @Inject constructor() {
         }
     }
 
+
 }
 
 
-         val viewModelScope: Any
-            get() = TODO("Not yet implemented")
 
-         suspend fun getAllUsers(): Response<List<User>?> {
+         suspend fun getUser(): Response<List<User>?> {
             TODO("Not yet implemented")
-        }
-
-
-
-         suspend fun getAllNotas(): Response<List<Note>?> {
+        }     suspend fun getAllNotas(): Response<List<Note>?> {
             TODO("Not yet implemented")
         }
 

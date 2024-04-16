@@ -56,7 +56,8 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:paddingStart="10dp"
-        android:layout_marginEnd="20dp"/>
+        android:layout_marginEnd="20dp"
+        />
     <TextView
         android:id="@+id/lbconfir"
         android:layout_width="0dp"
@@ -83,7 +84,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/lbconfir"
-        android:background="@color/white"/>
+        android:background="@color/white"
+        app:endIconMode="password_toggle"
+        />
     <TextView
         android:id="@+id/label"
         android:layout_width="wrap_content"
@@ -110,7 +113,9 @@
         android:layout_marginEnd="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/label">
+        app:layout_constraintTop_toBottomOf="@id/label"
+        app:endIconMode="password_toggle"
+        >
     </com.google.android.material.textfield.TextInputEditText>
 
     <com.google.android.material.button.MaterialButton

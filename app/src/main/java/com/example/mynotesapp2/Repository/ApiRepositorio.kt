@@ -2,35 +2,32 @@
 
 package com.example.mynotesapp2.Repository
 
-import android.provider.ContactsContract.CommonDataKinds.Email
-import android.text.BoringLayout
 import android.util.Log
 import com.example.mynotesapp2.core.di.NetworkModule
+import com.example.mynotesapp2.data.Model.NewUser
 
-import com.example.mynotesapp2.data.Model.Book
-import com.example.mynotesapp2.data.Model.Category
-import com.example.mynotesapp2.data.Model.HistoryVersion
-import com.example.mynotesapp2.data.Model.Note
 import com.example.mynotesapp2.data.Model.User
-import com.example.mynotesapp2.data.Model.remote.ApiService
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import retrofit2.Response
+import retrofit2.awaitResponse
 import javax.inject.Inject
 
- class ApiRepositorio
-    @Inject constructor()  {
-     suspend fun getAllUsers1(): List<User>? {
+class ApiRepositorio @Inject constructor() {
+
+    suspend fun createUser1(user: NewUser): User? {
         return try {
-            withContext(Dispatchers.IO) {
-                val response = NetworkModule.provideApiService(NetworkModule.provideRetrofit()).getAllUsers()
-                val re = response.body() ?: emptyList()
-                Log.e("ejemplo", "getAllUsers1: $re", )
-                re
-            }
+                val response = NetworkModule.provideApiService(NetworkModule.provideRetrofit()).registerUser(user).awaitResponse()
+                if (response.isSuccessful) {
+                    Log.e("TAG", "createUser1: ${response.body()}", )
+                    response.body() // Retorna el usuario creado si la solicitud fue exitosa
+                } else {
+                    Log.e("ApiRepositorio", "Error al crear usuario: ${response.code()}")
+                    null
+                }
         } catch (e: Exception) {
-            // Handle the exception
-            return emptyList()
+            // Manejar excepciones de red u otros errores
+            Log.e("ApiRepositorio", "Error al crear usuario: ${e.message}")
+            null
         }
     }
 }
