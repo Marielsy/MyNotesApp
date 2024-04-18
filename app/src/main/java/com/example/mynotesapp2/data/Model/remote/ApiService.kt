@@ -13,6 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 import javax.inject.Inject
 
 
@@ -24,7 +25,10 @@ interface ApiService {
 
     @POST("usuarios")
     fun registerUser(@Body user: NewUser): Call<User?>
-}
+
+    }
+
+
 
 
 class RetrofitServiceManager @Inject constructor() {

@@ -27,10 +27,11 @@ class RegisterFragment : Fragment() {
         binding = FragmentRegisterBinding.inflate(inflater, container, false)
         return binding.root
     }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getUser()
+        binding.iniciarSesion.setOnClickListener {
+            findNavController().navigate(R.id.action_registerFragment_to_login)
+        }
         binding.btnRegister.setOnClickListener {
             val email = binding.tfCorreo.text.toString()
             val password = binding.tfpass.text.toString()
@@ -42,15 +43,13 @@ class RegisterFragment : Fragment() {
                     email,
                     password,
                     confirmPassword
-                    ){
+                ) {
                     Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
-
+                    findNavController().navigate(R.id.login)
                 }
-//
-//                findNavController().navigate(R.id.action_registerFragment_to_login)
-            }/* else {
+            } else {
                 Toast.makeText(requireContext(), result, Toast.LENGTH_SHORT).show()
-            }*/
+            }
         }
     }
 }

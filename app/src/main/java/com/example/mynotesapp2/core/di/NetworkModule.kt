@@ -21,8 +21,6 @@ object NetworkModule {
             .baseUrl("http://apirest1.tecnoparaguana.org.ve/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-
-
   }
 
     @Singleton

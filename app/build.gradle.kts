@@ -47,7 +47,7 @@ android {
 dependencies {
     val navVersion = "2.7.0"
     val lifecycleVersion = "2.6.1"
-    val room_version = "2.4.0"
+    val room_version = "2.6.1"
     val fragment_version =  "1.6.2"
     val nav_version = "2.7.7"
 
@@ -82,6 +82,7 @@ dependencies {
     implementation("androidx.fragment:fragment-ktx:$fragment_version")
     //Room
     implementation ("androidx.room:room-runtime:$room_version")
+    annotationProcessor("androidx.room:room-compiler:$room_version")
 
     //Glide
     implementation ("com.github.bumptech.glide:glide:4.16.0")
@@ -89,6 +90,9 @@ dependencies {
     //dagger hill
     implementation("com.google.dagger:hilt-android:2.44")
     kapt("com.google.dagger:hilt-android-compiler:2.44")
+    //Room
+
+
 
     //NavSafe
     implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
