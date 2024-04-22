@@ -63,7 +63,7 @@ class RegisterViewModel2 @Inject constructor(
             return "Por favor, llene los campos correctamente."
         }
         if (password.isEmpty() || !verifyPassword(password)) {
-            return "Por favor, ingrese una contraseña válida."
+            return "Por favor, ingrese una contMraseña válida."
         }
 
         if (password != confirmPassword) {
