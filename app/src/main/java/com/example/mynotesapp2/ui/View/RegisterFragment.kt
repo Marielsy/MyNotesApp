@@ -34,7 +34,7 @@ class RegisterFragment : Fragment() {
         }
         binding.btnRegister.setOnClickListener {
             val email = binding.tfCorreo.text.toString()
-            val password = binding.tfpass.text.toString()
+            val password = binding.tfpass.toString()
             val confirmPassword = binding.confirPass.text.toString()
 
             val result = viewModel.validateFields(email, password, confirmPassword)
