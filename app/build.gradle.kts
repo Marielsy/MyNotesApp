@@ -49,6 +49,7 @@ android {
 
 
 dependencies {
+    implementation("com.google.ai.client.generativeai:generativeai:0.4.0")
     val navVersion = "2.7.0"
     val composeVersion = "1.6.4"
     val room_version = "2.6.1"

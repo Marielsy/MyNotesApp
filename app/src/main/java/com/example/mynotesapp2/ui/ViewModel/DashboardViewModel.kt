@@ -1,4 +1,8 @@
 package com.example.mynotesapp2.ui.ViewModel
 
-class DashboardViewModel {
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
+
+@HiltViewModel
+class DashboardViewModel @Inject constructor() {
 }

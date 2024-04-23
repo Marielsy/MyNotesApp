@@ -2,6 +2,7 @@ package com.example.mynotesapp2.Repository
 import android.util.Log
 import com.example.mynotesapp2.core.di.NetworkModule
 import com.example.mynotesapp2.data.Model.NewUser
+import com.example.mynotesapp2.data.Model.Note
 import com.example.mynotesapp2.data.Model.User
 import com.example.mynotesapp2.data.Model.database.dao.UserModelDao
 import com.example.mynotesapp2.data.Model.remote.ApiService
@@ -29,6 +30,17 @@ class ApiRepositorio @Inject constructor(
 
             Log.e("ApiRepositorio", "Error al crear usuario: ${e.message}")
             null
+        }
+    }
+
+
+    suspend fun getNotes(idP:Int): List<Note>? {
+        val response = apiRetrofit.getAllNotesbyIdUSer(idP)
+        return if(response.isSuccessful){
+            response.body()
+        }else{
+            Log.e("ApiRepositorio", "Error al crear usuario: ${response.code()}")
+            emptyList()
         }
     }
 

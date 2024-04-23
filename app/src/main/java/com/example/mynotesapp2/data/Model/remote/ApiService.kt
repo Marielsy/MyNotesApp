@@ -23,52 +23,24 @@ interface ApiService {
     @GET("usuarios")
     suspend fun getAllUsers(): Response<List<User>?>
 
+    @GET("notas")
+    suspend fun getAllNotesbyIdUSer(@Query("usuario_id") idP: Int): Response<List<Note>?>
+
+
+
+
     @POST("usuarios")
     fun registerUser(@Body user: NewUser): Call<User?>
 
+
     }
 
 
 
 
-class RetrofitServiceManager @Inject constructor() {
-    private lateinit var retrofitService: ApiService
-
-  companion object {
-        private lateinit var retrofitService: ApiService
-
-        fun getInstance(): ApiService {
-            if (!::retrofitService.isInitialized) {
-                val retrofit = Retrofit.Builder()
-                    .baseUrl("http://apirest1.tecnoparaguana.org.ve/")
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build()
-                retrofitService = retrofit.create(ApiService::class.java)
-            }
-            return retrofitService
-        }
-    }
-
-
-}
 
 
 
-         suspend fun getUser(): Response<List<User>?> {
-            TODO("Not yet implemented")
-        }     suspend fun getAllNotas(): Response<List<Note>?> {
-            TODO("Not yet implemented")
-        }
 
-         suspend fun getAllVersion(): Response<List<HistoryVersion>?> {
-            TODO("Not yet implemented")
-        }
 
-        suspend fun getAllCategory(): Response<List<Category>?> {
-            TODO("Not yet implemented")
-        }
-
-        suspend fun getAllLibretas(): Response<List<Book>?> {
-            TODO("Not yet implemented")
-        }
 
