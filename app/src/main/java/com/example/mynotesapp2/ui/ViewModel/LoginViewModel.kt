@@ -27,7 +27,6 @@ class LoginViewModel @Inject constructor(private val repository: ApiService) : V
             }
         }
     }
-
     private fun checkCredentials(users: List<User>, email: String, password: String): Boolean {
         return users.any { user -> user.email == email && user.password == password }
     }

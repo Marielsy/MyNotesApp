@@ -60,8 +60,9 @@ import androidx.compose.ui.unit.sp
 import com.example.mynotesapp2.R
 import com.example.mynotesapp2.databinding.FragmentDashboardBinding
 import com.google.ai.client.generativeai.type.content
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class Dashboard : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
