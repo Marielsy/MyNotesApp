@@ -129,7 +129,6 @@
         android:layout_marginEnd="50dp"
         android:layout_marginBottom="60dp"
         android:backgroundTint="#484956"/>
-
     <TextView
         android:id="@+id/registrarse"
         android:layout_width="0dp"

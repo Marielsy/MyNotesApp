@@ -1,15 +1,13 @@
+package com.example.mynotesapp2.ui.View
 import android.annotation.SuppressLint
 import android.os.Bundle
-
-
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.addCallback
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -25,14 +23,14 @@ import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
+import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.Icon
 import androidx.compose.material.IconButton
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
-import androidx.compose.material.TextField
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Lock
 import androidx.compose.runtime.Composable
@@ -43,13 +41,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.ComposeView
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
@@ -57,9 +52,8 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.fragment.findNavController
 import com.example.mynotesapp2.R
-import com.example.mynotesapp2.databinding.FragmentDashboardBinding
-import com.google.ai.client.generativeai.type.content
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -68,14 +62,17 @@ class Dashboard : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        return ComposeView(requireContext()).apply {
+        val view = ComposeView(requireContext()).apply {
             setContent {
                 DashboardContent()
             }
         }
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner){
+            findNavController().navigate(R.id.composeView)
+        }
+        return view
     }
 }
-
 @SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Preview
 @Composable
@@ -84,7 +81,6 @@ fun DashboardContent() {
     ) {
         ContentDash()
     }
-
 }
 
 @Composable
@@ -96,6 +92,8 @@ fun ContentDash() {
             .fillMaxSize()
     ) {
         Row {
+
+
             Text(
                 text = "MyNotes",
                 modifier = Modifier
@@ -121,11 +119,10 @@ fun ContentDash() {
                 )
             }
         }
+
         Buttons()
         Search()
         BodyComponent()
-
-
     }
 }
 
@@ -188,7 +185,7 @@ fun Search() {
 
 @Composable
 fun BodyComponent() {
-    val i = listOf<String>("", "", "")
+    val i = listOf<String>("", "", "",)
     LazyColumn {
         items(i.size) {
             Card(
@@ -211,7 +208,7 @@ fun BodyComponent() {
                             modifier = Modifier.padding(bottom = 8.dp)
                         )
                         Text(
-                            text = "Estudios",
+                            text = "#Hogar",
                             style = MaterialTheme.typography.subtitle1,
                             modifier = Modifier.padding(bottom = 8.dp)
                         )
@@ -222,10 +219,34 @@ fun BodyComponent() {
                     }
                 }
             )
+            }
         }
+    Spacer(modifier = Modifier.width(8.dp))
+    RowButtonPlus()
+}
 
+
+@Composable
+fun RowButtonPlus() {
+    Row(
+        modifier = Modifier
+
+            .fillMaxWidth(),
+        horizontalArrangement = Arrangement.End
+    ) {
+        FloatingActionButtonPlus()
     }
+}
+@Composable
+fun FloatingActionButtonPlus() {
+    Spacer(modifier =Modifier)
+    FloatingActionButton(
+        modifier = Modifier
+            .padding(0.dp),
+        backgroundColor= Color.Gray,
+        onClick = {
+        },
+    ) {
+        Icon(Icons.Default.Add, contentDescription = null)
     }
-
-
-//ListenCo
+}

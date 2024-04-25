@@ -36,10 +36,10 @@ class LoginFragment : Fragment() {
 
             viewModel.login(email, password) { loginSuccess ->
                 if (loginSuccess) {
-                    findNavController().navigate(R.id.login)
+                    findNavController().navigate(R.id.action_login_to_dashboard)
                     Toast.makeText(requireContext(), "Iniciando sesión", Toast.LENGTH_SHORT).show()
                 } else {
-                    Toast.makeText(requireContext(), "Datos invalidos", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "Ingrese sus datos correctamente", Toast.LENGTH_SHORT).show()
                 }
             }
         }

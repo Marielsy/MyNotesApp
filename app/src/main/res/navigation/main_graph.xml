@@ -18,5 +18,24 @@
         android:id="@+id/login"
         android:name="com.example.mynotesapp2.ui.View.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/fragment_login" />
+        tools:layout="@layout/fragment_login" >
+<!--        <action-->
+<!--            android:id="@+id/action_login_to_dashboard"-->
+<!--            app:destination="@id/dashboard" />-->
+        <action
+            android:id="@+id/action_login_to_dashboard"
+            app:destination="@id/dashboard" />
+    </fragment>
+    <fragment
+        android:id="@+id/dashboard"
+        android:name="com.example.mynotesapp2.ui.View.Dashboard"
+        android:label="Dashboard" />
+    <!--    <TextView-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="RowButtonPlus" />-->
+<!--    <fragment-->
+<!--        android:id="@+id/dashboard"-->
+<!--        android:name="com.example.mynotesapp2.ui.View.Dashboard"-->
+<!--        android:label="Dashboard" />-->
 </navigation>

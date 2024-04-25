@@ -46,19 +46,19 @@
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/tfCorreo"
         android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:hint="Correo@gmail.com"
+        android:layout_height="45dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:background="@color/white"
         android:lines="1"
         android:maxLines="1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:background="@color/white"
-        app:layout_constraintTop_toBottomOf="@id/tvcorreo"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
         android:paddingStart="10dp"
-        android:layout_marginEnd="20dp"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvcorreo" />
+
     <TextView
         android:id="@+id/lbconfir"
         android:layout_width="0dp"
@@ -73,9 +73,9 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tfpass"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:inputType="textPassword"
-        android:paddingStart="10dp"
+        android:paddingStart="6dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
@@ -123,7 +123,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tfpassConfirm"
         android:layout_width="0dp"
-        android:layout_height="40dp"
+        android:layout_height="50dp"
         android:inputType="textPassword"
         android:paddingStart="10dp"
         android:layout_marginStart="20dp"
