@@ -11,7 +11,8 @@ import retrofit2.awaitResponse
 import javax.inject.Inject
 
 class ApiRepositorio @Inject constructor(
-    val apiRetrofit: ApiService
+    val apiRetrofit: ApiService,
+    val bd : UserModelDao //es lo que esta malo
 ) {
     suspend fun createUser1(user: NewUser): User? {
         Log.e("createUser1", "createUser1")

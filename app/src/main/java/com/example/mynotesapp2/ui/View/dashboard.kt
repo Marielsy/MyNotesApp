@@ -8,12 +8,12 @@ import android.view.ViewGroup
 import androidx.activity.addCallback
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -91,10 +91,7 @@ fun ContentDash() {
             .background(color = colorResource(id = R.color.rosa))
             .fillMaxSize()
     ) {
-        Row {
-
-
-            Text(
+        Row {  Text(
                 text = "MyNotes",
                 modifier = Modifier
                     .padding(start = 100.dp, top = 27.dp)
@@ -125,7 +122,6 @@ fun ContentDash() {
         BodyComponent()
     }
 }
-
 @Composable
 fun CustomButton(text: String) {
     Button(
@@ -141,7 +137,6 @@ fun CustomButton(text: String) {
         Text(text = text)
     }
 }
-
 @Composable
 fun Buttons() {
     Row(
@@ -153,7 +148,6 @@ fun Buttons() {
         CustomButton(text = "Categoria")
     }
 }
-
 @Composable
 fun Search() {
     var text by remember { mutableStateOf(TextFieldValue()) }
@@ -167,8 +161,7 @@ fun Search() {
             modifier = Modifier
                 .weight(1f)
                 .background(color = Color.LightGray, shape = RoundedCornerShape(12.dp))
-                .padding(20.dp)
-                .height(6.dp),
+                .padding(15.dp),
             textStyle = TextStyle.Default.copy(color = Color.Black),
             cursorBrush = SolidColor(Color.Black)
         )
@@ -180,12 +173,10 @@ fun Search() {
             modifier = Modifier.size(36.dp)
         )
     }
-
 }
-
 @Composable
 fun BodyComponent() {
-    val i = listOf<String>("", "", "",)
+    val i = listOf<String>("", "", "")
     LazyColumn {
         items(i.size) {
             Card(
@@ -194,43 +185,52 @@ fun BodyComponent() {
                     .padding(16.dp)
                     .clip(RoundedCornerShape(18.dp)),
                 content = {
-                    Column(
-                        modifier = Modifier.padding(16.dp)
+                    Row(
+                        modifier = Modifier.padding(16.dp),
+                        verticalAlignment = Alignment.CenterVertically
                     ) {
-                        Text(
-                            text = "Nombre de la nota",
-                            style = MaterialTheme.typography.h6,
-                            modifier = Modifier.padding(bottom = 8.dp)
+                        Box(
+                            modifier = Modifier
+                                .size(16.dp)
+                                .background(color = Color(0xFF8B0000)) // Color rojo oscuro
+                                .padding(4.dp)
                         )
-                        Text(
-                            text = "Comprar ...",
-                            style = MaterialTheme.typography.subtitle1,
-                            modifier = Modifier.padding(bottom = 8.dp)
-                        )
-                        Text(
-                            text = "#Hogar",
-                            style = MaterialTheme.typography.subtitle1,
-                            modifier = Modifier.padding(bottom = 8.dp)
-                        )
-                        Text(
-                            text = "10:00am",
-                            style = MaterialTheme.typography.subtitle1,
-                        )
+                        Spacer(modifier = Modifier.width(16.dp))
+                        Column {
+                            Text(
+                                text = "Libreta 1",
+                                style = MaterialTheme.typography.h6,
+                                modifier = Modifier.padding(bottom = 8.dp)
+                            )
+                            Text(
+                                text = "Compras varias",
+                                style = MaterialTheme.typography.subtitle1,
+                                modifier = Modifier.padding(bottom = 8.dp)
+                            )
+                            Text(
+                                text = "#Compras",
+                                style = MaterialTheme.typography.subtitle1,
+                                modifier = Modifier.padding(bottom = 8.dp)
+                            )
+                            Text(
+                                text = "10:00am",
+                                style = MaterialTheme.typography.subtitle1,
+                            )
+                        }
                     }
                 }
+
             )
-            }
         }
+    }
     Spacer(modifier = Modifier.width(8.dp))
     RowButtonPlus()
 }
-
 
 @Composable
 fun RowButtonPlus() {
     Row(
         modifier = Modifier
-
             .fillMaxWidth(),
         horizontalArrangement = Arrangement.End
     ) {

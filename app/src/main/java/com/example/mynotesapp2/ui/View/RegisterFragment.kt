@@ -48,7 +48,6 @@ class RegisterFragment : Fragment() {
                     email,
                     password
                 )
-                Log.e("api service", "registrado")
             } else {
                 Toast.makeText(requireContext(), result, Toast.LENGTH_SHORT).show()
             }
